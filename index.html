@@ -81,7 +81,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 25px;
-      max-width: 1100px;
+      max-width: 800px;
       margin: 0 auto;
     }
 
@@ -89,18 +89,19 @@
       background: white;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
       text-align: center;
       padding-bottom: 25px;
     }
 
-    /* ЗУРАГ КАРТЫН ӨРГӨНИЙГ БҮРЭН ДҮҮРГЭНЭ */
+    /* ЗУРГИЙН ХЭСЭГ */
     .product img {
-      width: 100%;
-      height: 420px;
+      width: 220px;
+      height: 400px;
+      object-fit: contain;
       display: block;
-      object-fit: cover;
-      object-position: center;
+      margin: 0 auto;
+      background: white;
     }
 
     .product h3 {
@@ -151,7 +152,8 @@
       }
 
       .product img {
-        height: 400px;
+        width: 220px;
+        height: 380px;
       }
     }
   </style>
@@ -194,7 +196,7 @@
     <div class="product-grid">
 
 
-      <!-- PREMIUM T-SHIRT -->
+      <!-- Premium T-Shirt -->
 
       <div class="product">
 
@@ -216,7 +218,7 @@
       </div>
 
 
-      <!-- NEW STYLE T-SHIRT -->
+      <!-- New Style T-Shirt -->
 
       <div class="product">
 
