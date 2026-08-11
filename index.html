@@ -1,283 +1,581 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Cosmesion | Загварлаг пудволк</title>
+    <title>BLACKOUT — T-Shirt Store</title>
 
-  <meta name="description" content="Cosmesion - Өдөр бүр өмсөхөд тохиромжтой загварлаг, чанартай пудволк.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <meta name="keywords" content="Cosmesion, Cosmesion Mongolia, пудволк, футболк, t-shirt, загварлаг пудволк">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: white;
+        }
 
-  <meta name="author" content="Cosmesion">
+        /* HEADER */
+        header {
+            width: 100%;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(5,5,5,0.95);
+            border-bottom: 1px solid #222;
+        }
 
-  <meta name="robots" content="index, follow">
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: 5px;
+        }
 
-  <meta property="og:title" content="Cosmesion | Загварлаг пудволк">
-  <meta property="og:description" content="Cosmesion - Өдөр бүр өмсөхөд тохиромжтой загварлаг пудволкнууд.">
-  <meta property="og:type" content="website">
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        nav a:hover {
+            color: #aaa;
+        }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      color: #222;
-    }
+        /* HERO */
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 70px 20px;
+            background:
+                radial-gradient(circle at center, #222 0%, #080808 40%, #000 80%);
+        }
 
-    header {
-      background: #111;
-      color: white;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .hero h1 {
+            font-size: clamp(55px, 11vw, 150px);
+            line-height: .85;
+            font-weight: 900;
+            letter-spacing: -7px;
+        }
 
-    .logo {
-      font-size: 26px;
-      font-weight: bold;
-    }
+        .hero p {
+            margin-top: 30px;
+            color: #aaa;
+            font-size: 16px;
+            letter-spacing: 3px;
+        }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 15px;
-    }
+        .hero button {
+            margin-top: 35px;
+            padding: 16px 35px;
+            background: white;
+            color: black;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+        }
 
-    nav a:hover {
-      opacity: 0.7;
-    }
+        .hero button:hover {
+            background: #999;
+            transform: translateY(-3px);
+        }
 
-    .hero {
-      background: white;
-      text-align: center;
-      padding: 70px 20px;
-    }
+        /* PRODUCTS */
+        .products {
+            padding: 90px 7%;
+        }
 
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-    .hero p {
-      font-size: 20px;
-      color: #666;
-      margin-bottom: 15px;
-    }
+        .section-title h2 {
+            font-size: 42px;
+            letter-spacing: 3px;
+        }
 
-    .hero .button {
-      display: inline-block;
-      background: #111;
-      color: white;
-      padding: 14px 30px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 15px;
-    }
+        .section-title p {
+            color: #777;
+            margin-top: 10px;
+        }
 
-    .products {
-      padding: 50px 8%;
-    }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
 
-    .products h2 {
-      text-align: center;
-      font-size: 32px;
-      margin-bottom: 35px;
-    }
+        .product {
+            background: #111;
+            border: 1px solid #252525;
+            overflow: hidden;
+            transition: .3s;
+        }
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+        .product:hover {
+            transform: translateY(-8px);
+            border-color: #555;
+        }
 
-    .product {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      text-align: center;
-      padding-bottom: 25px;
-    }
+        .product-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background: #151515;
+        }
 
-    .product img {
-      width: 100%;
-      height: 500px;
-      object-fit: contain;
-      display: block;
-      background: white;
-    }
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
 
-    .product h3 {
-      margin: 18px 0 8px;
-      font-size: 20px;
-    }
+        .product:hover img {
+            transform: scale(1.04);
+        }
 
-    .price {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 18px;
-    }
+        .product-info {
+            padding: 25px;
+        }
 
-    .order {
-      display: inline-block;
-      background: #111;
-      color: white;
-      padding: 10px 22px;
-      border-radius: 5px;
-      text-decoration: none;
-    }
+        .product-info h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
 
-    .order:hover {
-      opacity: 0.8;
-    }
+        .description {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
 
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 30px;
-      margin-top: 40px;
-    }
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
 
-    footer p {
-      margin: 8px 0;
-    }
+        .buy-btn {
+            width: 100%;
+            padding: 14px;
+            background: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: .3s;
+        }
 
-    @media (max-width: 600px) {
+        .buy-btn:hover {
+            background: #bbb;
+        }
 
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
+        /* ABOUT */
+        .about {
+            padding: 100px 10%;
+            text-align: center;
+            background: #0d0d0d;
+        }
 
-      nav a {
-        margin: 0 8px;
-      }
+        .about h2 {
+            font-size: 45px;
+            margin-bottom: 25px;
+        }
 
-      .hero h1 {
-        font-size: 36px;
-      }
+        .about p {
+            max-width: 650px;
+            margin: auto;
+            color: #888;
+            line-height: 1.8;
+        }
 
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
+        /* CONTACT */
+        .contact {
+            padding: 90px 20px;
+            text-align: center;
+        }
 
-      .product img {
-        height: 400px;
-      }
-    }
-  </style>
+        .contact h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .contact a {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 7px;
+            border: 1px solid #444;
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            background: white;
+            color: black;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #222;
+            color: #555;
+            font-size: 12px;
+        }
+
+        /* CART */
+        .cart {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: white;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 200;
+            box-shadow: 0 0 25px rgba(255,255,255,.2);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 22px;
+            height: 22px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* MOBILE */
+        @media(max-width: 800px) {
+
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                min-height: 65vh;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products {
+                padding: 70px 5%;
+            }
+
+            .about {
+                padding: 70px 7%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
+<!-- HEADER -->
+<header>
 
-    <div class="logo">Cosmesion</div>
+    <div class="logo">
+        BLACKOUT
+    </div>
 
     <nav>
-      <a href="#">Нүүр</a>
-      <a href="#products">Пудволк</a>
-      <a href="#contact">Холбоо барих</a>
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
     </nav>
 
-  </header>
+</header>
 
 
-  <!-- HERO -->
-  <section class="hero">
+<!-- HERO -->
+<section class="hero" id="home">
 
-    <h1>Cosmesion</h1>
+    <div>
 
-    <p>Таны стиль, таны пудволк</p>
+        <h1>
+            WEAR<br>
+            YOUR<br>
+            STORY
+        </h1>
 
-    <p>
-      Өдөр бүр өмсөхөд тохиромжтой загварлаг пудволкнууд
-    </p>
+        <p>
+            LIMITED BLACK & WHITE COLLECTION
+        </p>
 
-    <a href="#products" class="button">
-      Пудволк үзэх
-    </a>
+        <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+            SHOP NOW
+        </button>
 
-  </section>
+    </div>
+
+</section>
 
 
-  <!-- PRODUCTS -->
-  <section class="products" id="products">
+<!-- PRODUCTS -->
+<section class="products" id="shop">
 
-    <h2>Шинэ бүтээгдэхүүн</h2>
+    <div class="section-title">
+
+        <h2>OUR COLLECTION</h2>
+
+        <p>
+            3 DESIGNS · LIMITED DROP
+        </p>
+
+    </div>
+
 
     <div class="product-grid">
 
 
-      <!-- 1-р бүтээгдэхүүн -->
-      <div class="product">
+        <!-- PRODUCT 1 -->
+        <div class="product">
 
-        <img
-          src="./2cd92721-9fdb-4929-9c65-93040d0f48d3.jpg"
-          alt="Cosmesion Premium T-Shirt"
-        >
+            <div class="product-img">
+                <img src="shirt1.jpg" alt="Blackout T-Shirt 01">
+            </div>
 
-        <h3>Premium T-Shirt</h3>
+            <div class="product-info">
 
-        <div class="price">
-          45,000₮
+                <h3>TIME / HISTORY</h3>
+
+                <p class="description">
+                    Black & white graphic oversized T-shirt.
+                </p>
+
+                <div class="price">
+                    45,000₮
+                </div>
+
+                <button class="buy-btn"
+                    onclick="addToCart('TIME / HISTORY')">
+                    ADD TO CART
+                </button>
+
+            </div>
+
         </div>
 
-        <a href="#contact" class="order">
-          Захиалах
-        </a>
 
-      </div>
+        <!-- PRODUCT 2 -->
+        <div class="product">
 
+            <div class="product-img">
+                <img src="shirt2.jpg" alt="Blackout T-Shirt 02">
+            </div>
 
-      <!-- 2-р бүтээгдэхүүн -->
-      <div class="product">
+            <div class="product-info">
 
-        <img
-          src="./cosmetic.png"
-          alt="Cosmesion New Style T-Shirt"
-        >
+                <h3>BLACK HOLE</h3>
 
-        <h3>New Style T-Shirt</h3>
+                <p class="description">
+                    Minimal black T-shirt with cosmic design.
+                </p>
 
-        <div class="price">
-          45,000₮
+                <div class="price">
+                    45,000₮
+                </div>
+
+                <button class="buy-btn"
+                    onclick="addToCart('BLACK HOLE')">
+                    ADD TO CART
+                </button>
+
+            </div>
+
         </div>
 
-        <a href="#contact" class="order">
-          Захиалах
-        </a>
 
-      </div>
+        <!-- PRODUCT 3 -->
+        <div class="product">
 
+            <div class="product-img">
+                <img src="shirt3.jpg" alt="Blackout T-Shirt 03">
+            </div>
+
+            <div class="product-info">
+
+                <h3>TIME TRAVEL</h3>
+
+                <p class="description">
+                    Saturn inspired monochrome graphic tee.
+                </p>
+
+                <div class="price">
+                    45,000₮
+                </div>
+
+                <button class="buy-btn"
+                    onclick="addToCart('TIME TRAVEL')">
+                    ADD TO CART
+                </button>
+
+            </div>
+
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- FOOTER -->
-  <footer id="contact">
+<!-- ABOUT -->
+<section class="about" id="about">
 
-    <h3>Cosmesion</h3>
-
-    <br>
+    <h2>BLACKOUT</h2>
 
     <p>
+        BLACKOUT бол өөрийнхөөрөө байж, өөрийн түүхийг бүтээх
+        хүмүүст зориулсан streetwear брэнд.
+        Бид энгийн хар өнгийг хүчтэй graphic дизайнтай хослуулж,
+        өдөр тутмын хувцсыг statement болгодог.
+    </p>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <h2>ORDER NOW</h2>
+
+    <p>
+        Захиалга өгөх бол доорх сувгаар холбогдоно уу.
+    </p>
+
+    <a href="https://instagram.com/" target="_blank">
+        INSTAGRAM
+    </a>
+
+    <a href="tel:99999999">
+        CALL
+    </a>
+
+</section>
+
+
+<!-- CART BUTTON -->
+<div class="cart" onclick="showCart()">
+
+    🛒
+
+    <div class="cart-count" id="cartCount">
+        0
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+
+    © 2026 BLACKOUT. ALL RIGHTS RESERVED.
+
+</footer>
+
+
+<script>
+
+    let cart = [];
+
+    function addToCart(productName) {
+
+        cart.push(productName);
+
+        document.getElementById("cartCount").innerText = cart.length;
+
+        alert(
+            productName +
+            " сагсанд нэмэгдлээ!"
+        );
+
+    }
+
+
+    function showCart() {
+
+        if (cart.length === 0) {
+
+            alert("Таны сагс хоосон байна.");
+
+            return;
+
+        }
+
+        let message =
+            "Таны сонгосон бүтээгдэхүүнүүд:\n\n";
+
+        cart.forEach(function(item, index) {
+
+            message +=
+                (index + 1) +
+                ". " +
+                item +
+                " — 45,000₮\n";
+
+        });
+
+        message +=
+            "\nНийт: " +
+            (cart.length * 45000).toLocaleString() +
+            "₮";
+
+        message +=
+            "\n\nЗахиалга баталгаажуулахын тулд Instagram-аар холбогдоно уу.";
+
+        alert(message);
+
+    }
+
+</script>
+
+</body>
+</html>
+ <p>
       Захиалга авах утас: (+976) 99416841
     </p>
 
@@ -289,406 +587,3 @@
 
     <p>
       © 2026 Cosmesion. Бүх эрх хуулиар хамгаалагдсан.
-    </p>
-
-  </footer>
-
-</body>
-</html>
-cosmesion.github.io/
-│
-├── index.html
-├── 2cd92721-9fdb-4929-9c65-93040d0f48d3.jpg
-└── cosmetic.png
-<!DOCTYPE html>
-<html lang="mn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Premium T-Shirt</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #111;
-        }
-
-        /* Гарчиг */
-        .title {
-            text-align: center;
-            font-size: 32px;
-            font-weight: bold;
-            margin: 35px 0;
-        }
-
-        /* Product хэсэг */
-        .products {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        /* Product card */
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            padding-bottom: 25px;
-
-            text-align: center;
-
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-
-            overflow: hidden;
-
-            transition: 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Зураг */
-        .product-image {
-            width: 100%;
-            height: 520px;
-
-            object-fit: contain;
-
-            display: block;
-
-            background: #000;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-        }
-
-        .product-image:hover {
-            transform: scale(1.02);
-        }
-
-        /* Нэр */
-        .product-name {
-            font-size: 22px;
-            margin-top: 18px;
-            margin-bottom: 8px;
-        }
-
-        /* Үнэ */
-        .price {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        /* Захиалах товч */
-        .order-btn {
-            background: #111;
-            color: white;
-
-            border: none;
-            border-radius: 5px;
-
-            padding: 12px 30px;
-
-            font-size: 16px;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-        }
-
-        .order-btn:hover {
-            background: #333;
-            transform: scale(1.05);
-        }
-
-        /* Захиалгын цонх */
-        .modal {
-            display: none;
-
-            position: fixed;
-            z-index: 1000;
-
-            left: 0;
-            top: 0;
-
-            width: 100%;
-            height: 100%;
-
-            background: rgba(0, 0, 0, 0.7);
-
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: white;
-
-            width: 90%;
-            max-width: 420px;
-
-            padding: 30px;
-
-            border-radius: 12px;
-
-            text-align: center;
-        }
-
-        .modal-content h2 {
-            margin-bottom: 20px;
-        }
-
-        .modal-content input,
-        .modal-content select {
-            width: 100%;
-
-            padding: 13px;
-
-            margin-bottom: 12px;
-
-            border: 1px solid #ccc;
-            border-radius: 5px;
-
-            font-size: 15px;
-        }
-
-        .confirm-btn {
-            width: 100%;
-
-            padding: 13px;
-
-            border: none;
-            border-radius: 5px;
-
-            background: #111;
-            color: white;
-
-            font-size: 16px;
-
-            cursor: pointer;
-        }
-
-        .close-btn {
-            margin-top: 10px;
-
-            width: 100%;
-
-            padding: 12px;
-
-            border: 1px solid #111;
-
-            background: white;
-
-            border-radius: 5px;
-
-            cursor: pointer;
-        }
-
-        /* Утас */
-        @media (max-width: 700px) {
-
-            .title {
-                font-size: 27px;
-            }
-
-            .products {
-                grid-template-columns: 1fr;
-                width: 92%;
-            }
-
-            .product-image {
-                height: 500px;
-            }
-        }
-    </style>
-</head>
-
-
-<body>
-
-    <!-- Гарчиг -->
-    <h1 class="title">
-        
-    </h1>
-
-
-    <!-- PRODUCT -->
-    <div class="products">
-
-        <div class="product-card">
-
-            <!-- Чиний зураг -->
-            <img
-                src="shirt.jpg"
-                alt="Premium T-Shirt"
-                class="product-image"
-            >
-
-            <h2 class="product-name">
-                Premium T-Shirt
-            </h2>
-
-            <p class="price">
-                45,000₮
-            </p>
-
-            <button
-                class="order-btn"
-                onclick="openOrder()"
-            >
-                Захиалах
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- ЗАХИАЛГЫН ЦОНХ -->
-    <div class="modal" id="orderModal">
-
-        <div class="modal-content">
-
-            <h2>
-                Захиалга
-            </h2>
-
-            <input
-                type="text"
-                id="name"
-                placeholder="Таны нэр"
-            >
-
-            <input
-                type="tel"
-                id="phone"
-                placeholder="Утасны дугаар"
-            >
-
-            <select id="size">
-
-                <option value="">
-                    Размер сонгох
-                </option>
-
-                <option value="S">
-                    S
-                </option>
-
-                <option value="M">
-                    M
-                </option>
-
-                <option value="L">
-                    L
-                </option>
-
-                <option value="XL">
-                    XL
-                </option>
-
-                <option value="XXL">
-                    XXL
-                </option>
-
-            </select>
-
-            <button
-                class="confirm-btn"
-                onclick="confirmOrder()"
-            >
-                Захиалга баталгаажуулах
-            </button>
-
-            <button
-                class="close-btn"
-                onclick="closeOrder()"
-            >
-                Болих
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <script>
-
-        /* Захиалгын цонх нээх */
-        function openOrder() {
-
-            document.getElementById("orderModal").style.display =
-                "flex";
-
-        }
-
-
-        /* Захиалгын цонх хаах */
-        function closeOrder() {
-
-            document.getElementById("orderModal").style.display =
-                "none";
-
-        }
-
-
-        /* Захиалга */
-        function confirmOrder() {
-
-            let name =
-                document.getElementById("name").value;
-
-            let phone =
-                document.getElementById("phone").value;
-
-            let size =
-                document.getElementById("size").value;
-
-
-            if (name === "" || phone === "" || size === "") {
-
-                alert("Бүх мэдээллээ оруулна уу.");
-
-                return;
-            }
-
-
-            alert(
-                "Захиалга амжилттай!\n\n" +
-
-                "Бүтээгдэхүүн: Premium T-Shirt\n" +
-
-                "Үнэ: 45,000₮\n" +
-
-                "Размер: " + size + "\n" +
-
-                "Нэр: " + name + "\n" +
-
-                "Утас: " + phone
-            );
-
-
-            closeOrder();
-
-        }
-
-    </script>
-
-</body>
-</html>
