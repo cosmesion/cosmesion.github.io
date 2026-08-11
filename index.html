@@ -3,16 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Cosmesion</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-    font-family:Arial,sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:#050505;
-    color:#fff;
+    color:white;
 }
+
+/* HEADER */
 
 header{
     height:72px;
@@ -24,11 +35,12 @@ header{
     position:sticky;
     top:0;
     z-index:1000;
+    border-bottom:1px solid #252525;
 }
 
 .logo{
     font-size:27px;
-    font-weight:bold;
+    font-weight:800;
 }
 
 nav{
@@ -37,28 +49,37 @@ nav{
 }
 
 nav a{
-    color:#fff;
+    color:white;
     text-decoration:none;
-    font-size:14px;
+    font-size:13px;
+    font-weight:bold;
 }
 
-nav a:hover{color:#aaa}
+nav a:hover{
+    color:#999;
+}
+
+/* HERO */
 
 .hero{
-    background:#fff;
+    background:white;
     color:#111;
     text-align:center;
-    padding:65px 20px;
+    padding:70px 20px;
 }
 
 .hero h1{
-    font-size:55px;
-    margin-bottom:12px;
+    font-size:56px;
+    margin-bottom:15px;
 }
 
 .hero p{
     color:#777;
+    letter-spacing:2px;
+    font-size:13px;
 }
+
+/* SHOP */
 
 .shop{
     padding:45px 2% 80px;
@@ -78,6 +99,8 @@ nav a:hover{color:#aaa}
     margin-top:8px;
 }
 
+/* PRODUCTS */
+
 .products{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -86,7 +109,7 @@ nav a:hover{color:#aaa}
 
 .product{
     background:#090909;
-    border:1px solid #222;
+    border:1px solid #252525;
     padding:12px;
     transition:.3s;
 }
@@ -96,7 +119,10 @@ nav a:hover{color:#aaa}
     border-color:#555;
 }
 
+/* IMAGE */
+
 .image{
+    width:100%;
     height:520px;
     background:#eee;
     position:relative;
@@ -107,6 +133,7 @@ nav a:hover{color:#aaa}
     width:100%;
     height:100%;
     object-fit:cover;
+    display:block;
     transition:.4s;
 }
 
@@ -114,17 +141,21 @@ nav a:hover{color:#aaa}
     transform:scale(1.03);
 }
 
+/* BADGE */
+
 .badge{
     position:absolute;
     top:12px;
     left:12px;
     background:#111;
-    color:#fff;
+    color:white;
     padding:7px 10px;
     font-size:10px;
     font-weight:bold;
-    z-index:2;
+    z-index:5;
 }
+
+/* HEART */
 
 .heart{
     position:absolute;
@@ -134,15 +165,18 @@ nav a:hover{color:#aaa}
     height:35px;
     border:0;
     border-radius:50%;
-    background:#fff;
+    background:white;
+    color:#111;
     font-size:20px;
     cursor:pointer;
-    z-index:3;
+    z-index:5;
 }
 
 .heart.active{
     color:red;
 }
+
+/* INFO */
 
 .info{
     padding:15px 3px 5px;
@@ -163,16 +197,18 @@ nav a:hover{color:#aaa}
 .desc{
     color:#777;
     font-size:12px;
-    line-height:1.5;
+    line-height:1.6;
     margin-bottom:15px;
 }
+
+/* BUY */
 
 .buy{
     width:100%;
     padding:14px;
-    border:0;
-    background:#fff;
+    background:white;
     color:#111;
+    border:0;
     font-weight:bold;
     cursor:pointer;
 }
@@ -181,8 +217,10 @@ nav a:hover{color:#aaa}
     background:#bbb;
 }
 
+/* ABOUT */
+
 .about{
-    background:#fff;
+    background:white;
     color:#111;
     text-align:center;
     padding:90px 10%;
@@ -199,6 +237,8 @@ nav a:hover{color:#aaa}
     color:#666;
     line-height:1.8;
 }
+
+/* CONTACT */
 
 .contact{
     text-align:center;
@@ -219,44 +259,48 @@ nav a:hover{color:#aaa}
     display:inline-block;
     padding:13px 25px;
     border:1px solid #444;
-    color:#fff;
+    color:white;
     text-decoration:none;
     margin:5px;
 }
 
 .contact a:hover{
-    background:#fff;
-    color:#000;
+    background:white;
+    color:black;
 }
 
-.cart-btn{
+/* CART BUTTON */
+
+.cart-button{
     position:fixed;
     right:25px;
     bottom:25px;
     width:62px;
     height:62px;
     border-radius:50%;
+    background:white;
     border:0;
-    background:#fff;
     font-size:24px;
     cursor:pointer;
     z-index:2000;
 }
 
-.count{
+.cart-count{
     position:absolute;
     right:-3px;
     top:-3px;
     width:23px;
     height:23px;
-    border-radius:50%;
     background:red;
-    color:#fff;
-    font-size:12px;
+    color:white;
+    border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
+    font-size:12px;
 }
+
+/* CART */
 
 .cart{
     position:fixed;
@@ -279,7 +323,7 @@ nav a:hover{color:#aaa}
     margin-bottom:15px;
 }
 
-.item{
+.cart-item{
     padding:12px 0;
     border-bottom:1px solid #333;
     display:flex;
@@ -299,11 +343,13 @@ nav a:hover{color:#aaa}
     margin-top:20px;
     padding:14px;
     border:0;
-    background:#fff;
-    color:#111;
+    background:white;
+    color:black;
     font-weight:bold;
     cursor:pointer;
 }
+
+/* FOOTER */
 
 footer{
     border-top:1px solid #222;
@@ -313,7 +359,10 @@ footer{
     font-size:13px;
 }
 
+/* MOBILE */
+
 @media(max-width:900px){
+
     .products{
         grid-template-columns:repeat(2,1fr);
     }
@@ -324,16 +373,17 @@ footer{
 }
 
 @media(max-width:600px){
+
     header{
-        padding:0 20px;
+        padding:0 18px;
     }
 
     nav{
-        gap:12px;
+        gap:10px;
     }
 
     nav a{
-        font-size:10px;
+        font-size:9px;
     }
 
     .logo{
@@ -357,8 +407,13 @@ footer{
 
 <body>
 
+<!-- HEADER -->
+
 <header>
-    <div class="logo">Cosmesion</div>
+
+    <div class="logo">
+        Cosmesion
+    </div>
 
     <nav>
         <a href="#home">HOME</a>
@@ -366,39 +421,63 @@ footer{
         <a href="#about">ABOUT</a>
         <a href="#contact">CONTACT</a>
     </nav>
+
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero" id="home">
+
     <h1>Cosmesion</h1>
-    <p>STREETWEAR • LIMITED COLLECTION</p>
+
+    <p>
+        STREETWEAR • LIMITED COLLECTION
+    </p>
+
 </section>
 
+
+<!-- PRODUCTS -->
 
 <section class="shop" id="shop">
 
     <div class="title">
+
         <h2>OUR PRODUCTS</h2>
-        <p>LIMITED DROP</p>
+
+        <p>
+            LIMITED DROP
+        </p>
+
     </div>
 
 
     <div class="products">
 
 
-        <!-- 1-р футболк -->
+        <!-- PRODUCT 1 -->
+
         <div class="product">
 
             <div class="image">
 
-                <div class="badge">BESTSELLER</div>
+                <div class="badge">
+                    BESTSELLER
+                </div>
 
-                <button class="heart"
-                onclick="heart(this)">♡</button>
+                <button
+                    class="heart"
+                    onclick="favorite(this)">
+                    ♡
+                </button>
 
-                <img src="shirt1.jpg">
+                <img
+                    src="shirt1.jpg"
+                    alt="TIME HISTORY T-SHIRT">
 
             </div>
+
 
             <div class="info">
 
@@ -411,32 +490,47 @@ footer{
                 </div>
 
                 <div class="desc">
-                    BLACK / WHITE GRAPHIC T-SHIRT<br>
+                    BLACK / WHITE GRAPHIC T-SHIRT
+                    <br>
                     SIZE: S - M - L - XL
                 </div>
 
-                <button class="buy"
-                onclick="add('TIME HISTORY T-SHIRT')">
+                <button
+                    class="buy"
+                    onclick="addCart('TIME HISTORY T-SHIRT')">
+
                     ADD TO CART
+
                 </button>
 
             </div>
+
         </div>
 
 
-        <!-- 2-р футболк -->
+
+        <!-- PRODUCT 2 -->
+
         <div class="product">
 
             <div class="image">
 
-                <div class="badge">NEW</div>
+                <div class="badge">
+                    NEW
+                </div>
 
-                <button class="heart"
-                onclick="heart(this)">♡</button>
+                <button
+                    class="heart"
+                    onclick="favorite(this)">
+                    ♡
+                </button>
 
-                <img src="shirt2.jpg">
+                <img
+                    src="shirt2.jpg"
+                    alt="BLACK HOLE T-SHIRT">
 
             </div>
+
 
             <div class="info">
 
@@ -449,32 +543,47 @@ footer{
                 </div>
 
                 <div class="desc">
-                    COSMIC BLACK GRAPHIC T-SHIRT<br>
+                    COSMIC BLACK GRAPHIC T-SHIRT
+                    <br>
                     SIZE: S - M - L - XL
                 </div>
 
-                <button class="buy"
-                onclick="add('BLACK HOLE T-SHIRT')">
+                <button
+                    class="buy"
+                    onclick="addCart('BLACK HOLE T-SHIRT')">
+
                     ADD TO CART
+
                 </button>
 
             </div>
+
         </div>
 
 
-        <!-- 3-р футболк -->
+
+        <!-- PRODUCT 3 -->
+
         <div class="product">
 
             <div class="image">
 
-                <div class="badge">LIMITED</div>
+                <div class="badge">
+                    LIMITED
+                </div>
 
-                <button class="heart"
-                onclick="heart(this)">♡</button>
+                <button
+                    class="heart"
+                    onclick="favorite(this)">
+                    ♡
+                </button>
 
-                <img src="shirt3.jpg">
+                <img
+                    src="shirt3.jpg"
+                    alt="TIME TRAVEL T-SHIRT">
 
             </div>
+
 
             <div class="info">
 
@@ -487,22 +596,30 @@ footer{
                 </div>
 
                 <div class="desc">
-                    SATURN / TIME GRAPHIC T-SHIRT<br>
+                    SATURN / TIME GRAPHIC T-SHIRT
+                    <br>
                     SIZE: S - M - L - XL
                 </div>
 
-                <button class="buy"
-                onclick="add('TIME TRAVEL T-SHIRT')">
+                <button
+                    class="buy"
+                    onclick="addCart('TIME TRAVEL T-SHIRT')">
+
                     ADD TO CART
+
                 </button>
 
             </div>
+
         </div>
 
 
     </div>
+
 </section>
 
+
+<!-- ABOUT -->
 
 <section class="about" id="about">
 
@@ -510,14 +627,16 @@ footer{
 
     <p>
         Cosmesion бол өөрийн хэв маяг,
-        өөрийн түүхийг илэрхийлэх хүмүүст зориулсан
-        streetwear брэнд.
-        Хар, цагаан graphic дизайныг өдөр тутмын
-        хувцастай хослуулдаг.
+        өөрийн түүхийг илэрхийлэх хүмүүст
+        зориулсан streetwear брэнд.
+        Хар, цагаан graphic дизайныг
+        өдөр тутмын хувцастай хослуулдаг.
     </p>
 
 </section>
 
+
+<!-- CONTACT -->
 
 <section class="contact" id="contact">
 
@@ -527,8 +646,12 @@ footer{
         Захиалга өгөх бол бидэнтэй холбогдоно уу.
     </p>
 
-    <a href="https://instagram.com/" target="_blank">
+    <a
+        href="https://instagram.com/"
+        target="_blank">
+
         INSTAGRAM
+
     </a>
 
     <a href="tel:99999999">
@@ -538,149 +661,247 @@ footer{
 </section>
 
 
-<!-- САГС -->
-<button class="cart-btn" onclick="openCart()">
+<!-- CART BUTTON -->
+
+<button
+    class="cart-button"
+    onclick="toggleCart()">
+
     🛒
-    <span class="count" id="count">0</span>
+
+    <span
+        class="cart-count"
+        id="cartCount">
+
+        0
+
+    </span>
+
 </button>
 
 
-<div class="cart" id="cart">
+<!-- CART BOX -->
 
-    <h3>YOUR CART</h3>
+<div
+    class="cart"
+    id="cart">
 
-    <div id="items">
+    <h3>
+        YOUR CART
+    </h3>
+
+    <div id="cartItems">
         Cart is empty.
     </div>
 
-    <div class="total" id="total">
+    <div
+        class="total"
+        id="cartTotal">
+
         Total: 0₮
+
     </div>
 
-    <button class="order" onclick="order()">
+    <button
+        class="order"
+        onclick="orderNow()">
+
         ORDER NOW
+
     </button>
 
 </div>
 
 
+<!-- FOOTER -->
+
 <footer>
-    © 2026 COSMESION — ALL RIGHTS RESERVED.
+
+    © 2026 COSMESION
+    <br>
+    ALL RIGHTS RESERVED.
+
 </footer>
 
 
 <script>
 
-let products = [];
+let cart = [];
 
-function add(name){
 
-    products.push({
+/* ADD TO CART */
+
+function addCart(name){
+
+    cart.push({
         name:name,
         price:45000
     });
 
-    update();
+    updateCart();
 
-    alert(name + " сагсанд нэмэгдлээ!");
-
+    alert(
+        name +
+        " сагсанд нэмэгдлээ!"
+    );
 }
 
 
-function update(){
+/* UPDATE CART */
 
-    document.getElementById("count").innerText =
-        products.length;
+function updateCart(){
 
-    let html = "";
-    let total = 0;
+    document.getElementById(
+        "cartCount"
+    ).innerText = cart.length;
 
-    if(products.length === 0){
 
-        document.getElementById("items").innerHTML =
+    let items =
+        document.getElementById(
+            "cartItems"
+        );
+
+
+    if(cart.length === 0){
+
+        items.innerHTML =
             "Cart is empty.";
 
-        document.getElementById("total").innerText =
+        document.getElementById(
+            "cartTotal"
+        ).innerText =
             "Total: 0₮";
 
         return;
     }
 
-    products.forEach(function(product,i){
 
-        total += product.price;
+    let html = "";
 
-        html += `
-        <div class="item">
-            <span>${i+1}. ${product.name}</span>
-            <span>${product.price.toLocaleString()}₮</span>
-        </div>
-        `;
+    let total = 0;
 
-    });
 
-    document.getElementById("items").innerHTML = html;
+    cart.forEach(
+        function(product,index){
 
-    document.getElementById("total").innerText =
-        "Total: " + total.toLocaleString() + "₮";
+            total += product.price;
 
+
+            html += `
+
+                <div class="cart-item">
+
+                    <span>
+                        ${index + 1}.
+                        ${product.name}
+                    </span>
+
+                    <span>
+                        ${product.price.toLocaleString()}₮
+                    </span>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    items.innerHTML = html;
+
+
+    document.getElementById(
+        "cartTotal"
+    ).innerText =
+        "Total: " +
+        total.toLocaleString() +
+        "₮";
 }
 
 
-function openCart(){
+/* CART OPEN */
+
+function toggleCart(){
 
     document
-    .getElementById("cart")
-    .classList.toggle("show");
+        .getElementById("cart")
+        .classList.toggle("show");
 
 }
 
 
-function heart(button){
+/* FAVORITE */
 
-    button.classList.toggle("active");
+function favorite(button){
 
-    if(button.innerText === "♡"){
+    button.classList.toggle(
+        "active"
+    );
+
+
+    if(
+        button.classList.contains(
+            "active"
+        )
+    ){
+
         button.innerText = "♥";
-    }else{
-        button.innerText = "♡";
-    }
 
+    }else{
+
+        button.innerText = "♡";
+
+    }
 }
 
 
-function order(){
+/* ORDER */
 
-    if(products.length === 0){
+function orderNow(){
 
-        alert("Сагс хоосон байна!");
+    if(cart.length === 0){
+
+        alert(
+            "Таны сагс хоосон байна!"
+        );
 
         return;
     }
 
-    let text = "ЗАХИАЛГА\n\n";
+
+    let text =
+        "COSMESION ЗАХИАЛГА\n\n";
+
     let total = 0;
 
-    products.forEach(function(product,i){
 
-        text +=
-        (i+1) + ". " +
-        product.name +
-        " - " +
-        product.price.toLocaleString() +
-        "₮\n";
+    cart.forEach(
+        function(product,index){
 
-        total += product.price;
+            text +=
+                (index + 1) +
+                ". " +
+                product.name +
+                " — " +
+                product.price.toLocaleString() +
+                "₮\n";
 
-    });
+            total += product.price;
+
+        }
+    );
+
 
     text +=
-    "\nНийт: " +
-    total.toLocaleString() +
-    "₮";
+        "\nНийт: " +
+        total.toLocaleString() +
+        "₮";
+
 
     text +=
-    "\n\nЗахиалга баталгаажуулахын тулд Instagram-аар холбогдоно уу.";
+        
+
 
     alert(text);
 
