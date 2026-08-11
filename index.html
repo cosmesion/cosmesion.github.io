@@ -1,581 +1,692 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmesion</title>
 
-    <title>Cosmesion</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+body{
+    font-family:Arial,sans-serif;
+    background:#050505;
+    color:#fff;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #050505;
-            color: white;
-        }
+header{
+    height:72px;
+    background:#111;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 8%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
 
-        /* HEADER */
-        header {
-            width: 100%;
-            padding: 22px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(5,5,5,0.95);
-            border-bottom: 1px solid #222;
-        }
+.logo{
+    font-size:27px;
+    font-weight:bold;
+}
 
-        .logo {
-            font-size: 25px;
-            font-weight: 900;
-            letter-spacing: 5px;
-        }
+nav{
+    display:flex;
+    gap:30px;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 14px;
-            text-transform: uppercase;
-        }
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+}
 
-        nav a:hover {
-            color: #aaa;
-        }
+nav a:hover{color:#aaa}
 
-        /* HERO */
-        .hero {
-            min-height: 75vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 70px 20px;
-            background:
-                radial-gradient(circle at center, #222 0%, #080808 40%, #000 80%);
-        }
+.hero{
+    background:#fff;
+    color:#111;
+    text-align:center;
+    padding:65px 20px;
+}
 
-        .hero h1 {
-            font-size: clamp(55px, 11vw, 150px);
-            line-height: .85;
-            font-weight: 900;
-            letter-spacing: -7px;
-        }
+.hero h1{
+    font-size:55px;
+    margin-bottom:12px;
+}
 
-        .hero p {
-            margin-top: 30px;
-            color: #aaa;
-            font-size: 16px;
-            letter-spacing: 3px;
-        }
+.hero p{
+    color:#777;
+}
 
-        .hero button {
-            margin-top: 35px;
-            padding: 16px 35px;
-            background: white;
-            color: black;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            transition: .3s;
-        }
+.shop{
+    padding:45px 2% 80px;
+}
 
-        .hero button:hover {
-            background: #999;
-            transform: translateY(-3px);
-        }
+.title{
+    text-align:center;
+    margin-bottom:35px;
+}
 
-        /* PRODUCTS */
-        .products {
-            padding: 90px 7%;
-        }
+.title h2{
+    font-size:32px;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+.title p{
+    color:#777;
+    margin-top:8px;
+}
 
-        .section-title h2 {
-            font-size: 42px;
-            letter-spacing: 3px;
-        }
+.products{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
 
-        .section-title p {
-            color: #777;
-            margin-top: 10px;
-        }
+.product{
+    background:#090909;
+    border:1px solid #222;
+    padding:12px;
+    transition:.3s;
+}
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
+.product:hover{
+    transform:translateY(-5px);
+    border-color:#555;
+}
 
-        .product {
-            background: #111;
-            border: 1px solid #252525;
-            overflow: hidden;
-            transition: .3s;
-        }
+.image{
+    height:520px;
+    background:#eee;
+    position:relative;
+    overflow:hidden;
+}
 
-        .product:hover {
-            transform: translateY(-8px);
-            border-color: #555;
-        }
+.image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
 
-        .product-img {
-            width: 100%;
-            aspect-ratio: 3/4;
-            overflow: hidden;
-            background: #151515;
-        }
+.product:hover .image img{
+    transform:scale(1.03);
+}
 
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: .5s;
-        }
+.badge{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:#111;
+    color:#fff;
+    padding:7px 10px;
+    font-size:10px;
+    font-weight:bold;
+    z-index:2;
+}
 
-        .product:hover img {
-            transform: scale(1.04);
-        }
+.heart{
+    position:absolute;
+    right:12px;
+    top:12px;
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:#fff;
+    font-size:20px;
+    cursor:pointer;
+    z-index:3;
+}
 
-        .product-info {
-            padding: 25px;
-        }
+.heart.active{
+    color:red;
+}
 
-        .product-info h3 {
-            font-size: 21px;
-            margin-bottom: 10px;
-        }
+.info{
+    padding:15px 3px 5px;
+}
 
-        .description {
-            color: #777;
-            font-size: 13px;
-            margin-bottom: 18px;
-        }
+.name{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
 
-        .price {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 18px;
-        }
+.price{
+    font-size:17px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
 
-        .buy-btn {
-            width: 100%;
-            padding: 14px;
-            background: white;
-            color: black;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: .3s;
-        }
+.desc{
+    color:#777;
+    font-size:12px;
+    line-height:1.5;
+    margin-bottom:15px;
+}
 
-        .buy-btn:hover {
-            background: #bbb;
-        }
+.buy{
+    width:100%;
+    padding:14px;
+    border:0;
+    background:#fff;
+    color:#111;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-        /* ABOUT */
-        .about {
-            padding: 100px 10%;
-            text-align: center;
-            background: #0d0d0d;
-        }
+.buy:hover{
+    background:#bbb;
+}
 
-        .about h2 {
-            font-size: 45px;
-            margin-bottom: 25px;
-        }
+.about{
+    background:#fff;
+    color:#111;
+    text-align:center;
+    padding:90px 10%;
+}
 
-        .about p {
-            max-width: 650px;
-            margin: auto;
-            color: #888;
-            line-height: 1.8;
-        }
+.about h2{
+    font-size:40px;
+    margin-bottom:20px;
+}
 
-        /* CONTACT */
-        .contact {
-            padding: 90px 20px;
-            text-align: center;
-        }
+.about p{
+    max-width:700px;
+    margin:auto;
+    color:#666;
+    line-height:1.8;
+}
 
-        .contact h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+.contact{
+    text-align:center;
+    padding:80px 20px;
+}
 
-        .contact p {
-            color: #888;
-            margin-bottom: 30px;
-        }
+.contact h2{
+    font-size:38px;
+    margin-bottom:15px;
+}
 
-        .contact a {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 7px;
-            border: 1px solid #444;
-            color: white;
-            text-decoration: none;
-        }
+.contact p{
+    color:#777;
+    margin-bottom:25px;
+}
 
-        .contact a:hover {
-            background: white;
-            color: black;
-        }
+.contact a{
+    display:inline-block;
+    padding:13px 25px;
+    border:1px solid #444;
+    color:#fff;
+    text-decoration:none;
+    margin:5px;
+}
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #222;
-            color: #555;
-            font-size: 12px;
-        }
+.contact a:hover{
+    background:#fff;
+    color:#000;
+}
 
-        /* CART */
-        .cart {
-            position: fixed;
-            right: 25px;
-            bottom: 25px;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            background: white;
-            color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 22px;
-            cursor: pointer;
-            z-index: 200;
-            box-shadow: 0 0 25px rgba(255,255,255,.2);
-        }
+.cart-btn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    border:0;
+    background:#fff;
+    font-size:24px;
+    cursor:pointer;
+    z-index:2000;
+}
 
-        .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            width: 22px;
-            height: 22px;
-            background: red;
-            color: white;
-            border-radius: 50%;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.count{
+    position:absolute;
+    right:-3px;
+    top:-3px;
+    width:23px;
+    height:23px;
+    border-radius:50%;
+    background:red;
+    color:#fff;
+    font-size:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
 
-        /* MOBILE */
-        @media(max-width: 800px) {
+.cart{
+    position:fixed;
+    right:20px;
+    bottom:100px;
+    width:350px;
+    max-width:calc(100% - 40px);
+    background:#111;
+    border:1px solid #333;
+    padding:25px;
+    z-index:1500;
+    display:none;
+}
 
-            header {
-                padding: 18px 5%;
-            }
+.cart.show{
+    display:block;
+}
 
-            nav {
-                display: none;
-            }
+.cart h3{
+    margin-bottom:15px;
+}
 
-            .hero {
-                min-height: 65vh;
-            }
+.item{
+    padding:12px 0;
+    border-bottom:1px solid #333;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    font-size:13px;
+}
 
-            .hero h1 {
-                letter-spacing: -4px;
-            }
+.total{
+    margin-top:20px;
+    font-size:19px;
+    font-weight:bold;
+}
 
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
+.order{
+    width:100%;
+    margin-top:20px;
+    padding:14px;
+    border:0;
+    background:#fff;
+    color:#111;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-            .products {
-                padding: 70px 5%;
-            }
+footer{
+    border-top:1px solid #222;
+    text-align:center;
+    padding:30px;
+    color:#555;
+    font-size:13px;
+}
 
-            .about {
-                padding: 70px 7%;
-            }
-        }
-    </style>
+@media(max-width:900px){
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .image{
+        height:450px;
+    }
+}
+
+@media(max-width:600px){
+    header{
+        padding:0 20px;
+    }
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:10px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .image{
+        height:520px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-
-    <div class="logo">
-     
-    </div>
+    <div class="logo">Cosmesion</div>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#shop">Shop</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#home">HOME</a>
+        <a href="#shop">SHOP</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
     </nav>
-
 </header>
 
 
-<!-- HERO -->
 <section class="hero" id="home">
-
-    <div>
-
-        <h1>
-            Таны стиль, таны пудволк
-
-Өдөр бүр өмсөхөд тохиромжтой загварлаг пудволкнууд<br>
-            <br>
-            
-        </h1>
-
-        <p>
-           
-        </p>
-
-        <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
-            SHOP NOW
-        </button>
-
-    </div>
-
+    <h1>Cosmesion</h1>
+    <p>STREETWEAR • LIMITED COLLECTION</p>
 </section>
 
 
-<!-- PRODUCTS -->
-<section class="products" id="shop">
+<section class="shop" id="shop">
 
-    <div class="section-title">
-
-        <h2>OUR COLLECTION</h2>
-
-        <p>
-             LIMITED DROP
-        </p>
-
+    <div class="title">
+        <h2>OUR PRODUCTS</h2>
+        <p>LIMITED DROP</p>
     </div>
 
 
-    <div class="product-grid">
+    <div class="products">
 
 
-        <!-- PRODUCT 1 -->
+        <!-- 1-р футболк -->
         <div class="product">
 
-            <div class="product-img">
-                <img src="shirt1.jpg" alt="Blackout T-Shirt 01">
+            <div class="image">
+
+                <div class="badge">BESTSELLER</div>
+
+                <button class="heart"
+                onclick="heart(this)">♡</button>
+
+                <img src="shirt1.jpg">
+
             </div>
 
-            <div class="product-info">
+            <div class="info">
 
-                <h3>TIME / HISTORY</h3>
-
-                <p class="description">
-                    Black & white graphic oversized T-shirt.
-                </p>
+                <div class="name">
+                    TIME HISTORY T-SHIRT
+                </div>
 
                 <div class="price">
                     45,000₮
                 </div>
 
-                <button class="buy-btn"
-                    onclick="addToCart('TIME / HISTORY')">
+                <div class="desc">
+                    BLACK / WHITE GRAPHIC T-SHIRT<br>
+                    SIZE: S - M - L - XL
+                </div>
+
+                <button class="buy"
+                onclick="add('TIME HISTORY T-SHIRT')">
                     ADD TO CART
                 </button>
 
             </div>
-
         </div>
 
 
-        <!-- PRODUCT 2 -->
+        <!-- 2-р футболк -->
         <div class="product">
 
-            <div class="product-img">
-                <img src="shirt2.jpg" alt="Blackout T-Shirt 02">
+            <div class="image">
+
+                <div class="badge">NEW</div>
+
+                <button class="heart"
+                onclick="heart(this)">♡</button>
+
+                <img src="shirt2.jpg">
+
             </div>
 
-            <div class="product-info">
+            <div class="info">
 
-                <h3>BLACK HOLE</h3>
-
-                <p class="description">
-                    Minimal black T-shirt with cosmic design.
-                </p>
+                <div class="name">
+                    BLACK HOLE T-SHIRT
+                </div>
 
                 <div class="price">
                     45,000₮
                 </div>
 
-                <button class="buy-btn"
-                    onclick="addToCart('BLACK HOLE')">
+                <div class="desc">
+                    COSMIC BLACK GRAPHIC T-SHIRT<br>
+                    SIZE: S - M - L - XL
+                </div>
+
+                <button class="buy"
+                onclick="add('BLACK HOLE T-SHIRT')">
                     ADD TO CART
                 </button>
 
             </div>
-
         </div>
 
 
-        <!-- PRODUCT 3 -->
+        <!-- 3-р футболк -->
         <div class="product">
 
-            <div class="product-img">
-                <img src="shirt3.jpg" alt="Blackout T-Shirt 03">
+            <div class="image">
+
+                <div class="badge">LIMITED</div>
+
+                <button class="heart"
+                onclick="heart(this)">♡</button>
+
+                <img src="shirt3.jpg">
+
             </div>
 
-            <div class="product-info">
+            <div class="info">
 
-                <h3>TIME TRAVEL</h3>
-
-                <p class="description">
-                    Saturn inspired monochrome graphic tee.
-                </p>
+                <div class="name">
+                    TIME TRAVEL T-SHIRT
+                </div>
 
                 <div class="price">
                     45,000₮
                 </div>
 
-                <button class="buy-btn"
-                    onclick="addToCart('TIME TRAVEL')">
+                <div class="desc">
+                    SATURN / TIME GRAPHIC T-SHIRT<br>
+                    SIZE: S - M - L - XL
+                </div>
+
+                <button class="buy"
+                onclick="add('TIME TRAVEL T-SHIRT')">
                     ADD TO CART
                 </button>
 
             </div>
-
         </div>
+
 
     </div>
-
 </section>
 
 
-<!-- ABOUT -->
 <section class="about" id="about">
 
-    <h2>Cosmesion</h2>
+    <h2>ABOUT COSMESION</h2>
 
     <p>
-        Cosmesion бол өөрийнхөөрөө байж, өөрийн түүхийг бүтээх
-        хүмүүст зориулсан streetwear брэнд.
-        Бид энгийн хар өнгийг хүчтэй graphic дизайнтай хослуулж,
-        өдөр тутмын хувцсыг statement болгодог.
+        Cosmesion бол өөрийн хэв маяг,
+        өөрийн түүхийг илэрхийлэх хүмүүст зориулсан
+        streetwear брэнд.
+        Хар, цагаан graphic дизайныг өдөр тутмын
+        хувцастай хослуулдаг.
     </p>
 
 </section>
 
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
 
-    <h2>ORDER NOW</h2>
+    <h2>CONTACT</h2>
 
     <p>
-        Захиалга өгөх бол доорх сувгаар холбогдоно уу.
+        Захиалга өгөх бол бидэнтэй холбогдоно уу.
     </p>
 
     <a href="https://instagram.com/" target="_blank">
         INSTAGRAM
     </a>
 
-    <a href="tel:99416841">
+    <a href="tel:99999999">
         CALL
     </a>
 
 </section>
 
 
-<!-- CART BUTTON -->
-<div class="cart" onclick="showCart()">
-
+<!-- САГС -->
+<button class="cart-btn" onclick="openCart()">
     🛒
+    <span class="count" id="count">0</span>
+</button>
 
-    <div class="cart-count" id="cartCount">
-        0
+
+<div class="cart" id="cart">
+
+    <h3>YOUR CART</h3>
+
+    <div id="items">
+        Cart is empty.
     </div>
+
+    <div class="total" id="total">
+        Total: 0₮
+    </div>
+
+    <button class="order" onclick="order()">
+        ORDER NOW
+    </button>
 
 </div>
 
 
-<!-- FOOTER -->
 <footer>
-
-    © 2026 Cosmesion. Бүх эрх хуулиар хамгаалагдсан.
-
+    © 2026 COSMESION — ALL RIGHTS RESERVED.
 </footer>
 
 
 <script>
 
-    let cart = [];
+let products = [];
 
-    function addToCart(productName) {
+function add(name){
 
-        cart.push(productName);
+    products.push({
+        name:name,
+        price:45000
+    });
 
-        document.getElementById("cartCount").innerText = cart.length;
+    update();
 
-        alert(
-            productName +
-            " сагсанд нэмэгдлээ!"
-        );
+    alert(name + " сагсанд нэмэгдлээ!");
 
+}
+
+
+function update(){
+
+    document.getElementById("count").innerText =
+        products.length;
+
+    let html = "";
+    let total = 0;
+
+    if(products.length === 0){
+
+        document.getElementById("items").innerHTML =
+            "Cart is empty.";
+
+        document.getElementById("total").innerText =
+            "Total: 0₮";
+
+        return;
     }
 
+    products.forEach(function(product,i){
 
-    function showCart() {
+        total += product.price;
 
-        if (cart.length === 0) {
+        html += `
+        <div class="item">
+            <span>${i+1}. ${product.name}</span>
+            <span>${product.price.toLocaleString()}₮</span>
+        </div>
+        `;
 
-            alert("Таны сагс хоосон байна.");
+    });
 
-            return;
+    document.getElementById("items").innerHTML = html;
 
-        }
+    document.getElementById("total").innerText =
+        "Total: " + total.toLocaleString() + "₮";
 
-        let message =
-            "Таны сонгосон бүтээгдэхүүнүүд:\n\n";
+}
 
-        cart.forEach(function(item, index) {
 
-            message +=
-                (index + 1) +
-                ". " +
-                item +
-                " — 45,000₮\n";
+function openCart(){
 
-        });
+    document
+    .getElementById("cart")
+    .classList.toggle("show");
 
-        message +=
-            "\nНийт: " +
-            (cart.length * 45000).toLocaleString() +
-            "₮";
+}
 
-        message +=
-            "\n\nЗахиалга баталгаажуулахын тулд Instagram-аар холбогдоно уу.";
 
-        alert(message);
+function heart(button){
 
+    button.classList.toggle("active");
+
+    if(button.innerText === "♡"){
+        button.innerText = "♥";
+    }else{
+        button.innerText = "♡";
     }
+
+}
+
+
+function order(){
+
+    if(products.length === 0){
+
+        alert("Сагс хоосон байна!");
+
+        return;
+    }
+
+    let text = "ЗАХИАЛГА\n\n";
+    let total = 0;
+
+    products.forEach(function(product,i){
+
+        text +=
+        (i+1) + ". " +
+        product.name +
+        " - " +
+        product.price.toLocaleString() +
+        "₮\n";
+
+        total += product.price;
+
+    });
+
+    text +=
+    "\nНийт: " +
+    total.toLocaleString() +
+    "₮";
+
+    text +=
+    "\n\nЗахиалга баталгаажуулахын тулд Instagram-аар холбогдоно уу.";
+
+    alert(text);
+
+}
 
 </script>
 
 </body>
 </html>
- <p>
-    
