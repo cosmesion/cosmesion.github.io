@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="mn">
 <head>
@@ -20,7 +19,6 @@
       color: #222;
     }
 
-    /* HEADER */
     header {
       background: #111;
       color: white;
@@ -42,11 +40,6 @@
       font-size: 15px;
     }
 
-    nav a:hover {
-      opacity: 0.7;
-    }
-
-    /* HERO */
     .hero {
       background: white;
       text-align: center;
@@ -74,11 +67,6 @@
       font-weight: bold;
     }
 
-    .button:hover {
-      background: #333;
-    }
-
-    /* PRODUCTS */
     .products {
       padding: 50px 8%;
     }
@@ -93,7 +81,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 25px;
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -101,18 +89,18 @@
       background: white;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
       text-align: center;
       padding-bottom: 25px;
     }
 
-    /* ЗУРАГ */
+    /* ЗУРГИЙГ БҮТНЭЭР НЬ ХАРУУЛНА */
     .product img {
       width: 100%;
-      height: 420px;
+      height: 400px;
+      object-fit: contain;
       display: block;
-      object-fit: cover;
-      object-position: center;
+      background: white;
     }
 
     .product h3 {
@@ -135,11 +123,6 @@
       text-decoration: none;
     }
 
-    .order:hover {
-      background: #333;
-    }
-
-    /* FOOTER */
     footer {
       background: #111;
       color: white;
@@ -148,11 +131,6 @@
       margin-top: 40px;
     }
 
-    footer p {
-      margin: 7px 0;
-    }
-
-    /* MOBILE */
     @media (max-width: 600px) {
 
       header {
@@ -168,16 +146,12 @@
         font-size: 36px;
       }
 
-      .hero p {
-        font-size: 17px;
-      }
-
       .product-grid {
         grid-template-columns: 1fr;
       }
 
       .product img {
-        height: 400px;
+        height: 350px;
       }
     }
   </style>
@@ -185,12 +159,9 @@
 
 <body>
 
-  <!-- HEADER -->
   <header>
 
-    <div class="logo">
-      Cosmesion
-    </div>
+    <div class="logo">Cosmesion</div>
 
     <nav>
       <a href="#">Нүүр</a>
@@ -201,12 +172,9 @@
   </header>
 
 
-  <!-- HERO -->
   <section class="hero">
 
-    <h1>
-      Таны стиль, таны пудволк
-    </h1>
+    <h1>Таны стиль, таны пудволк</h1>
 
     <p>
       Өдөр бүр өмсөхөд тохиромжтой загварлаг пудволкнууд
@@ -219,26 +187,23 @@
   </section>
 
 
-  <!-- PRODUCTS -->
   <section class="products" id="products">
 
-    <h2>
-      Шинэ бүтээгдэхүүн
-    </h2>
+    <h2>Шинэ бүтээгдэхүүн</h2>
 
     <div class="product-grid">
 
-      <!-- PRODUCT 1 -->
+
+      <!-- 1-р бүтээгдэхүүн -->
+
       <div class="product">
 
         <img
-          src="images/tshirt1.jpg"
+          src="2cd92721-9fdb-4929-9c65-93040d0f48d3.jpg"
           alt="Premium T-Shirt"
         >
 
-        <h3>
-          Premium T-Shirt
-        </h3>
+        <h3>Premium T-Shirt</h3>
 
         <div class="price">
           55,000₮
@@ -251,17 +216,16 @@
       </div>
 
 
-      <!-- PRODUCT 2 -->
+      <!-- 2-р бүтээгдэхүүн -->
+
       <div class="product">
 
         <img
-          src="images/tshirt2.jpg"
+          src="cosmetic.png"
           alt="New Style T-Shirt"
         >
 
-        <h3>
-          New Style T-Shirt
-        </h3>
+        <h3>New Style T-Shirt</h3>
 
         <div class="price">
           50,000₮
@@ -273,17 +237,15 @@
 
       </div>
 
+
     </div>
 
   </section>
 
 
-  <!-- CONTACT -->
   <footer id="contact">
 
-    <h3>
-      Cosmesion
-    </h3>
+    <h3>Cosmesion</h3>
 
     <br>
 
@@ -298,7 +260,7 @@
     <br>
 
     <p>
-      © 2026 Cosmesion
+      cosmesion_star
     </p>
 
   </footer>
