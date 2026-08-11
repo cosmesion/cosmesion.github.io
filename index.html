@@ -300,7 +300,395 @@ cosmesion.github.io/
 ├── index.html
 ├── 2cd92721-9fdb-4929-9c65-93040d0f48d3.jpg
 └── cosmetic.png
-my-website/
-│
-├── index.html
-└── shirt.jpg
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Premium T-Shirt</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        /* Гарчиг */
+        .title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 35px 0;
+        }
+
+        /* Product хэсэг */
+        .products {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        /* Product card */
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding-bottom: 25px;
+
+            text-align: center;
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Зураг */
+        .product-image {
+            width: 100%;
+            height: 520px;
+
+            object-fit: contain;
+
+            display: block;
+
+            background: #000;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .product-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Нэр */
+        .product-name {
+            font-size: 22px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        /* Үнэ */
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Захиалах товч */
+        .order-btn {
+            background: #111;
+            color: white;
+
+            border: none;
+            border-radius: 5px;
+
+            padding: 12px 30px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        /* Захиалгын цонх */
+        .modal {
+            display: none;
+
+            position: fixed;
+            z-index: 1000;
+
+            left: 0;
+            top: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.7);
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+
+            width: 90%;
+            max-width: 420px;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .modal-content input,
+        .modal-content select {
+            width: 100%;
+
+            padding: 13px;
+
+            margin-bottom: 12px;
+
+            border: 1px solid #ccc;
+            border-radius: 5px;
+
+            font-size: 15px;
+        }
+
+        .confirm-btn {
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+            border-radius: 5px;
+
+            background: #111;
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+        .close-btn {
+            margin-top: 10px;
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #111;
+
+            background: white;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+        }
+
+        /* Утас */
+        @media (max-width: 700px) {
+
+            .title {
+                font-size: 27px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+                width: 92%;
+            }
+
+            .product-image {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Гарчиг -->
+    <h1 class="title">
+        
+    </h1>
+
+
+    <!-- PRODUCT -->
+    <div class="products">
+
+        <div class="product-card">
+
+            <!-- Чиний зураг -->
+            <img
+                src="shirt.jpg"
+                alt="Premium T-Shirt"
+                class="product-image"
+            >
+
+            <h2 class="product-name">
+                Premium T-Shirt
+            </h2>
+
+            <p class="price">
+                45,000₮
+            </p>
+
+            <button
+                class="order-btn"
+                onclick="openOrder()"
+            >
+                Захиалах
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ЗАХИАЛГЫН ЦОНХ -->
+    <div class="modal" id="orderModal">
+
+        <div class="modal-content">
+
+            <h2>
+                Захиалга
+            </h2>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Таны нэр"
+            >
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Утасны дугаар"
+            >
+
+            <select id="size">
+
+                <option value="">
+                    Размер сонгох
+                </option>
+
+                <option value="S">
+                    S
+                </option>
+
+                <option value="M">
+                    M
+                </option>
+
+                <option value="L">
+                    L
+                </option>
+
+                <option value="XL">
+                    XL
+                </option>
+
+                <option value="XXL">
+                    XXL
+                </option>
+
+            </select>
+
+            <button
+                class="confirm-btn"
+                onclick="confirmOrder()"
+            >
+                Захиалга баталгаажуулах
+            </button>
+
+            <button
+                class="close-btn"
+                onclick="closeOrder()"
+            >
+                Болих
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* Захиалгын цонх нээх */
+        function openOrder() {
+
+            document.getElementById("orderModal").style.display =
+                "flex";
+
+        }
+
+
+        /* Захиалгын цонх хаах */
+        function closeOrder() {
+
+            document.getElementById("orderModal").style.display =
+                "none";
+
+        }
+
+
+        /* Захиалга */
+        function confirmOrder() {
+
+            let name =
+                document.getElementById("name").value;
+
+            let phone =
+                document.getElementById("phone").value;
+
+            let size =
+                document.getElementById("size").value;
+
+
+            if (name === "" || phone === "" || size === "") {
+
+                alert("Бүх мэдээллээ оруулна уу.");
+
+                return;
+            }
+
+
+            alert(
+                "Захиалга амжилттай!\n\n" +
+
+                "Бүтээгдэхүүн: Premium T-Shirt\n" +
+
+                "Үнэ: 45,000₮\n" +
+
+                "Размер: " + size + "\n" +
+
+                "Нэр: " + name + "\n" +
+
+                "Утас: " + phone
+            );
+
+
+            closeOrder();
+
+        }
+
+    </script>
+
+</body>
+</html>
