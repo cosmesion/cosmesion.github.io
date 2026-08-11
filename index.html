@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="mn">
 <head>
   <meta charset="UTF-8">
@@ -7,15 +6,13 @@
 
   <title>Cosmesion | Загварлаг пудволк</title>
 
-  <meta name="description" content="Cosmesion - Өдөр бүр өмсөхөд тохиромжтой загварлаг, чанартай пудволк. Шинэ загварын пудволкнуудыг захиалаарай.">
+  <meta name="description" content="Cosmesion - Өдөр бүр өмсөхөд тохиромжтой загварлаг, чанартай пудволк.">
 
-  <meta name="keywords" content="Cosmesion, Cosmesion Mongolia, пудволк, футболк, t-shirt, загварлаг пудволк, Монгол хувцас">
+  <meta name="keywords" content="Cosmesion, Cosmesion Mongolia, пудволк, футболк, t-shirt, загварлаг пудволк">
 
   <meta name="author" content="Cosmesion">
 
   <meta name="robots" content="index, follow">
-
-  <!-- Google болон сошиалд харагдах мэдээлэл -->
 
   <meta property="og:title" content="Cosmesion | Загварлаг пудволк">
   <meta property="og:description" content="Cosmesion - Өдөр бүр өмсөхөд тохиромжтой загварлаг пудволкнууд.">
@@ -73,10 +70,10 @@
     .hero p {
       font-size: 20px;
       color: #666;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
     }
 
-    .button {
+    .hero .button {
       display: inline-block;
       background: #111;
       color: white;
@@ -84,6 +81,7 @@
       border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
+      margin-top: 15px;
     }
 
     .products {
@@ -115,7 +113,7 @@
 
     .product img {
       width: 100%;
-      height: 400px;
+      height: 500px;
       object-fit: contain;
       display: block;
       background: white;
@@ -141,12 +139,20 @@
       text-decoration: none;
     }
 
+    .order:hover {
+      opacity: 0.8;
+    }
+
     footer {
       background: #111;
       color: white;
       text-align: center;
       padding: 30px;
       margin-top: 40px;
+    }
+
+    footer p {
+      margin: 8px 0;
     }
 
     @media (max-width: 600px) {
@@ -169,124 +175,123 @@
       }
 
       .product img {
-        height: 350px;
+        height: 400px;
       }
     }
   </style>
-
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <header>
 
-```
-<div class="logo">Cosmesion</div>
+    <div class="logo">Cosmesion</div>
 
-<nav>
-  <a href="#">Нүүр</a>
-  <a href="#products">Пудволк</a>
-  <a href="#contact">Холбоо барих</a>
-</nav>
-```
+    <nav>
+      <a href="#">Нүүр</a>
+      <a href="#products">Пудволк</a>
+      <a href="#contact">Холбоо барих</a>
+    </nav>
 
   </header>
 
+
+  <!-- HERO -->
   <section class="hero">
 
-```
-<h1>Cosmesion</h1>
+    <h1>Cosmesion</h1>
 
-<p>
-  Таны стиль, таны пудволк
-</p>
+    <p>Таны стиль, таны пудволк</p>
 
-<p>
-  Өдөр бүр өмсөхөд тохиромжтой загварлаг пудволкнууд
-</p>
+    <p>
+      Өдөр бүр өмсөхөд тохиромжтой загварлаг пудволкнууд
+    </p>
 
-<a href="#products" class="button">
-  Пудволк үзэх
-</a>
-```
+    <a href="#products" class="button">
+      Пудволк үзэх
+    </a>
 
   </section>
 
+
+  <!-- PRODUCTS -->
   <section class="products" id="products">
 
-```
-<h2>Шинэ бүтээгдэхүүн</h2>
+    <h2>Шинэ бүтээгдэхүүн</h2>
 
-<div class="product-grid">
+    <div class="product-grid">
 
-  <div class="product">
 
-    <img
-      src="./2cd92721-9fdb-4929-9c65-93040d0f48d3.jpg"
-      alt="Cosmesion Premium T-Shirt"
-    >
+      <!-- 1-р бүтээгдэхүүн -->
+      <div class="product">
 
-    <h3>Premium T-Shirt</h3>
+        <img
+          src="./2cd92721-9fdb-4929-9c65-93040d0f48d3.jpg"
+          alt="Cosmesion Premium T-Shirt"
+        >
 
-    <div class="price">
-      45,000
+        <h3>Premium T-Shirt</h3>
+
+        <div class="price">
+          45,000₮
+        </div>
+
+        <a href="#contact" class="order">
+          Захиалах
+        </a>
+
+      </div>
+
+
+      <!-- 2-р бүтээгдэхүүн -->
+      <div class="product">
+
+        <img
+          src="./cosmetic.png"
+          alt="Cosmesion New Style T-Shirt"
+        >
+
+        <h3>New Style T-Shirt</h3>
+
+        <div class="price">
+          45,000₮
+        </div>
+
+        <a href="#contact" class="order">
+          Захиалах
+        </a>
+
+      </div>
+
+
     </div>
-
-    <a href="#contact" class="order">
-      Захиалах
-    </a>
-
-  </div>
-
-
-  <div class="product">
-
-    <img
-      src="./cosmetic.png"
-      alt="Cosmesion New Style T-Shirt"
-    >
-
-    <h3>New Style T-Shirt</h3>
-
-    <div class="price">
-      45,000
-    </div>
-
-    <a href="#contact" class="order">
-      Захиалах
-    </a>
-
-  </div>
-
-</div>
-```
 
   </section>
 
+
+  <!-- FOOTER -->
   <footer id="contact">
 
-```
-<h3>Cosmesion</h3>
+    <h3>Cosmesion</h3>
 
-<br>
+    <br>
 
-<p>
-  Захиалга авах утас: (+976) 99416841
-</p>
+    <p>
+      Захиалга авах утас: (+976) 99416841
+    </p>
 
-<p>
-  INSTAGRAM: cosmesion_star
-</p>
+    <p>
+      INSTAGRAM: cosmesion_star
+    </p>
 
-<br>
+    <br>
 
-<p>
-  © 2026 Cosmesion. Бүх эрх хуулиар хамгаалагдсан.
-</p>
-```
+    <p>
+      © 2026 Cosmesion. Бүх эрх хуулиар хамгаалагдсан.
+    </p>
 
   </footer>
 
 </body>
 </html>
-
