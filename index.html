@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PUDVOLK SHOP</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 15px;
+    }
+
+    .hero {
+      background: white;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #111;
+      color: white;
+      padding: 14px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .products {
+      padding: 50px 8%;
+    }
+
+    .products h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 35px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      text-align: center;
+      padding-bottom: 25px;
+    }
+
+    .product img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .product h3 {
+      margin: 18px 0 8px;
+      font-size: 20px;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .order {
+      display: inline-block;
+      background: #111;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">PUDVOLK SHOP</div>
+
+    <nav>
+      <a href="#">Нүүр</a>
+      <a href="#products">Пудволк</a>
+      <a href="#contact">Холбоо барих</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Таны стиль, таны пудволк</h1>
+
+    <p>
+      Өдөр бүр өмсөхөд тохиромжтой загварлаг пудволкнууд
+    </p>
+
+    <a href="#products" class="button">
+      Пудволк үзэх
+    </a>
+  </section>
+
+  <section class="products" id="products">
+
+    <h2>Шинэ бүтээгдэхүүн</h2>
+
+    <div class="product-grid">
+
+      <div class="product">
+        <img src="2a3bfc04-175d-4e0f-8a65-9f313a161996.jpg" alt="Пудволк">
+        <h3>Classic T-Shirt</h3>
+        <div class="price">45,000₮</div>
+        <a href="#contact" class="order">Захиалах</a>
+      </div>
+
+      <div class="product">
+        <img src="2cd92721-9fdb-4929-9c65-93040d0f48d3.jpg" alt="Пудволк">
+        <h3>Premium T-Shirt</h3>
+        <div class="price">55,000₮</div>
+        <a href="#contact" class="order">Захиалах</a>
+      </div>
+
+      <div class="product">
+        <img src="cosmetic.png" alt="Пудволк">
+        <h3>New Style T-Shirt</h3>
+        <div class="price">50,000₮</div>
+        <a href="#contact" class="order">Захиалах</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer id="contact">
+    <h3>PUDVOLK SHOP</h3>
+    <br>
+    <p>Захиалга авах утас: 9999-9999</p>
+    <p>Facebook: PUDVOLK SHOP</p>
+    <br>
+    <p>© 2026 PUDVOLK SHOP</p>
+  </footer>
+
+</body>
+</html>
